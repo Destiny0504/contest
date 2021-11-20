@@ -3,16 +3,17 @@ n = int(n)
 x = int(x)
 
 friend = input().split()
-known = []
-tmp = len(known)
-known.append(int(x))
-known.append(int(friend[x - 1]))
-ans = len(known)
+tmp = -1
+known = x
+ans = 0
 
 while(ans != tmp):
     tmp = ans
-    if int(friend[known[-1] - 1]) not in known:
-        known.append(int(friend[known[-1] - 1]))
+    if int(friend[known - 1]) != -1 :
+        tmp_know = int(friend[known - 1])
+        friend[known - 1] = -1
+        known = tmp_know
+        ans += 1
     #print(known)
-    ans = len(known)
+
 print(ans)
